@@ -3,4 +3,4 @@ FROM eclipse-temurin:17-jre-alpine
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 
-ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -Xmx${XMX} -Xms${XMS} -Metaspace${METASPACE} -jar /app.jar"]
+ENTRYPOINT ["sh", "-c", "java ${JAVA_OPTS} -jar /app.jar"]
