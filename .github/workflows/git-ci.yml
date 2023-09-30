@@ -30,7 +30,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Get Version
-        uses: ./
-        id: getVersion
+      uses: ./
+      id: getVersion
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag openbear-eureka-server:${{ steps.getVersion.outputs.version }}
