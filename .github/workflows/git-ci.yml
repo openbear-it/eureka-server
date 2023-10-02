@@ -1,4 +1,4 @@
-name: openbear.it CI
+name: Java CI with Maven
 
 on:
   push:
@@ -21,8 +21,3 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - name: Get Version
-      uses: entimaniac/read-pom-version-action@1.0.0
-      id: getVersion
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag openbear-eureka-server:${{ steps.getVersion.outputs.version }}
